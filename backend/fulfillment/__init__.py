@@ -1,1 +1,0 @@
-"""Order fulfillment module for simplified order processing."""

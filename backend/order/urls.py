@@ -47,4 +47,13 @@ order_urls = [
     path('purchase-order/', include(purchase_order_urls)),
     path('sales-order/', include(sales_order_urls)),
     path('return-order/', include(return_order_urls)),
+    
+    # Fulfillment URLs
+    path('fulfillment/', include([
+        path('orders/', company.api.FulfillmentSalesOrderListView.as_view(), name='fulfillment-orders'),
+        path('scan/', company.api.FulfillmentScanItemView.as_view(), name='fulfillment-scan'),
+        path('substitute/', company.api.FulfillmentSubstituteItemView.as_view(), name='fulfillment-substitute'),
+        path('complete/', company.api.FulfillmentCompleteItemView.as_view(), name='fulfillment-complete'),
+        path('unavailable/', company.api.FulfillmentMarkUnavailableView.as_view(), name='fulfillment-unavailable'),
+    ])),
 ]

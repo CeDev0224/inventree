@@ -228,5 +228,12 @@ export enum ApiEndpoints {
   customer_register = 'company/register-customer',
   public_company_list = 'company/get-customers',
   part_detail = 'part/public-detail/:pk',
-  sales_order_create = 'order/create-sales-order'
+  sales_order_create = 'order/create-sales-order',
+
+  // Fulfillment endpoints
+  fulfillment_orders = 'order/fulfillment/orders/',
+  fulfillment_scan = 'order/fulfillment/scan/',
+  fulfillment_substitute = 'order/fulfillment/substitute/',
+  fulfillment_complete = 'order/fulfillment/complete/',
+  fulfillment_unavailable = 'order/fulfillment/unavailable/'
 }
