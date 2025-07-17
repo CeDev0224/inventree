@@ -42,6 +42,7 @@ from part.models import Part
 from users.models import Owner
 
 from rest_framework.views import APIView
+from rest_framework.generics import RetrieveAPIView
 from rest_framework import permissions
 from company.models import Company
 from company.serializers import CompanySerializer
@@ -120,7 +121,7 @@ class GeneralExtraLineList(DataExportViewMixin):
     def get_serializer(self, *args, **kwargs):
         """Return the serializer instance for this endpoint."""
         try:
-            params = self.request.query_params
+            params = self.request.query_params3
 
             kwargs['order_detail'] = str2bool(params.get('order_detail', False))
         except AttributeError:
@@ -1763,9 +1764,6 @@ class OrderCalendarExport(ICalFeed):
 
 order_api_urls = [
     path('create-sales-order', PublicCreateSalesOrder.as_view(), name='api-create-sales-order'),
-    path('fulfill-orders/', FulfillOrdersListView.as_view(), name='api-fulfill-orders-list'),
-    path('fulfill-order/<int:pk>/', FulfillOrderDetailView.as_view(), name='api-fulfill-order-detail'),
-    path('fulfill-item/', FulfillItemView.as_view(), name='api-fulfill-item'),
     # API endpoints for purchase orders
     path(
         'po/',

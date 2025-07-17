@@ -229,4 +229,9 @@ export enum ApiEndpoints {
   public_company_list = 'company/get-customers',
   part_detail = 'part/public-detail/:pk',
   sales_order_create = 'order/create-sales-order'
+
+  // Fulfill Orders endpoints
+  fulfill_orders_list = 'company/fulfill-orders/',
+  fulfill_order_detail = 'company/fulfill-order/:id/',
+  fulfill_item = 'company/fulfill-item/'
 }
