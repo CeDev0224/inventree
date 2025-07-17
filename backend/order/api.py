@@ -120,7 +120,7 @@ class GeneralExtraLineList(DataExportViewMixin):
     def get_serializer(self, *args, **kwargs):
         """Return the serializer instance for this endpoint."""
         try:
-            params = self.request.query_params3
+            params = self.request.query_params
 
             kwargs['order_detail'] = str2bool(params.get('order_detail', False))
         except AttributeError:
@@ -1763,6 +1763,9 @@ class OrderCalendarExport(ICalFeed):
 
 order_api_urls = [
     path('create-sales-order', PublicCreateSalesOrder.as_view(), name='api-create-sales-order'),
+    path('fulfill-orders/', FulfillOrdersListView.as_view(), name='api-fulfill-orders-list'),
+    path('fulfill-order/<int:pk>/', FulfillOrderDetailView.as_view(), name='api-fulfill-order-detail'),
+    path('fulfill-item/', FulfillItemView.as_view(), name='api-fulfill-item'),
     # API endpoints for purchase orders
     path(
         'po/',
