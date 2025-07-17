@@ -9,6 +9,7 @@ export const navTabs = [
   { text: <Trans>Dashboard</Trans>, name: 'home' },
   { text: <Trans>Products</Trans>, name: 'part', role: UserRoles.part },
   { text: <Trans>Stock</Trans>, name: 'stock', role: UserRoles.stock },
+  { text: <Trans>Fulfill Orders</Trans>, name: 'fulfillorders', role: UserRoles.sales_order },
   {
     text: <Trans>Manufacturing</Trans>,
     name: 'manufacturing',

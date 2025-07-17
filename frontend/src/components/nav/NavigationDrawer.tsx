@@ -87,6 +87,13 @@ function DrawerContent({ closeFunc }: Readonly<{ closeFunc?: () => void }>) {
         icon: 'stock'
       },
       {
+        id: 'fulfillorders',
+        title: t`Fulfill Orders`,
+        link: '/fulfillorders/',
+        hidden: !user.hasViewRole(UserRoles.sales_order),
+        icon: 'sales_orders'
+      },
+      {
         id: 'build',
         title: t`Manufacturing`,
         link: '/manufacturing/',

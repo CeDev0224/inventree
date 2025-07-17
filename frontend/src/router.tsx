@@ -128,6 +128,14 @@ export const CartPage = Loadable(
 export const OrderSuccessPage = Loadable(
   lazy(() => import('./pages/Public/OrderSuccess'))
 );
+
+export const FulfillOrdersIndex = Loadable(
+  lazy(() => import('./pages/fulfillment/FulfillOrdersIndex'))
+);
+
+export const FulfillOrderDetail = Loadable(
+  lazy(() => import('./pages/fulfillment/FulfillOrderDetail'))
+);
 import { CartProvider } from './contexts/CartContext';
 
 // Routes
@@ -180,6 +188,11 @@ export const routes = (
         <Route path='shipment/:id/*' element={<SalesOrderShipmentDetail />} />
         <Route path='return-order/:id/*' element={<ReturnOrderDetail />} />
         <Route path='customer/:id/*' element={<CustomerDetail />} />
+      </Route>
+      <Route path='fulfillorders/'>
+        <Route index element={<Navigate to='index/' />} />
+        <Route path='index/*' element={<FulfillOrdersIndex />} />
+        <Route path='order/:id/*' element={<FulfillOrderDetail />} />
       </Route>
     </Route>
     <Route path='/' errorElement={<ErrorPage />}>
